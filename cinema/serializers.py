@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from cinema.models import CinemaHall, Genre, Actor, Movie, MovieSession
 
 
@@ -41,7 +42,7 @@ class MovieListSerializer(MovieSerializer):
     )
 
 
-class MovieRetrieveSerializer(MovieSerializer):
+class MovieRetrieveSerializer(serializers.ModelSerializer):
     genres = GenreSerializer(many=True, read_only=True)
     actors = ActorSerializer(many=True, read_only=True)
 
